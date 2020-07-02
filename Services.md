@@ -63,5 +63,5 @@ make your service is available to only your app by including the `android:export
  > **if you want the service to send a result back, the client that starts the service can create a ‪*PendingIntent*‬ for a broadcast with ‪`getBroadcast()‬` and deliver it to the**
  > **service in the ‪Intent‬ that starts the service, The service can then use the broadcast to deliver a result.**
  
- ##LifeCycle of Services
+ ## LifeCycle of Services
  ![LifeCycle of Services](https://developer.android.com/images/service_lifecycle.png)
