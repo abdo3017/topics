@@ -1,7 +1,7 @@
 # Android_Resources
 ## services
 ### what's Services?
-A Service is an application component that can perform long-running operations in the background, even when the user is not interacting with your application.
+A Service is an application component that can perform long-running operations in the background,\ even when the user is not interacting with your application.
 **For example** a service can handle network transactions, play music, perform file I/O, or interact with a content provider.
 ### what types of Services?
 * **Foreground**\
@@ -12,8 +12,10 @@ A Service is an application component that can perform long-running operations i
   **For example** if an app used a service to compact its storag\
   > If your app targets API level 26 or higher:don't use this it,Instead, schedule your tasks using WorkManager.
 * **Bound**
-A bound service offers a client-server interface that allows components to interact with the service, send requests, receive results, and even do so across processes with interprocess communication (IPC).
-*Multiple components can bind to the service at once, but when all of them unbind, the service is destroyed.
+  A bound service offers a client-server interface that allows components to interact with the service,\
+  send requests, receive results, and even do so across processes with       interprocess communication (IPC).
+  > Multiple components can bind to the service at once, but when all of them unbind, the service is destroyed.
+  
 /we can bound andstart service by calling[ onStartCommand(), onBind()].
 /you can declare the service as private in the manifest file and block access from other applications.
 Choosing between a service and a thread!!
