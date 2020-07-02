@@ -38,14 +38,14 @@ you must create a subclass of **Service** or use one of its existing subclasses 
 make your service is available to only your app by including the `android:exported` attribute equal **`false`**.
 
 ### Notes
-* **the ‪`onStartCommand()`‬ method must return an integer. The integer is a value that describes how the system should continue the service in the event that the system kills it.
-  1. **START_NOT_STICKY**
-     Don't recreate the service unless there are pending intents to deliver.\
-     This is the safest option to avoid running your service when not necessary and when your application can simply restart any unfinished jobs.
-  2. **START_STICKY**
-     recreate the service and call `‪onStartCommand()‬`, but do not redeliver the last intent,This is suitable for **media players**.
-  3. **START_REDELIVER_INTENT**
-     recreate the service and call `‪onStartCommand()‬` with the last intent that was delivered to the service, such as **downloading a file**.
+* **the ‪`onStartCommand()`‬ method must return an integer. The integer is a value that describes how the system should continue the service in the event that the system kills it.**
+1. **START_NOT_STICKY**
+   Don't recreate the service unless there are pending intents to deliver.\
+   This is the safest option to avoid running your service when not necessary and when your application can simply restart any unfinished jobs.
+2. **START_STICKY**
+   recreate the service and call `‪onStartCommand()‬`, but do not redeliver the last intent,This is suitable for **media players**.
+3. **START_REDELIVER_INTENT**
+   recreate the service and call `‪onStartCommand()‬` with the last intent that was delivered to the service, such as **downloading a file**.
 
 * **When a service is started, it has a lifecycle that's independent of the component that started it.**
 
@@ -54,9 +54,10 @@ make your service is available to only your app by including the `android:export
 * **Pass intent by startservice(your intent) and receive it in onStartcommand()**
 
 
-It is not recommended to use intentservice for new apps as it will not work well starting with Android 8 Oreo, You can use JobIntentService as a replacement for ‪IntentService‬ that is compatible with newer versions of Android.
+> **It is not recommended to use intentservice for new apps as it will not work well starting with Android 8 Oreo, You can use JobIntentService as a replacement for**
+> **‪IntentService that is compatible with newer versions of Android.**
 
+> **If your app targets *API level 26 or higher*, the system imposes restrictions on using or creating background services unless the app itself is in the foreground.**
 
-/If your app targets API level 26 or higher, the system imposes restrictions on using or creating background services unless the app itself is in the foreground.
-
-/if you want the service to send a result back, the client that starts the service can create a ‪PendingIntent‬ for a broadcast (with ‪getBroadcast()‬) and deliver it to the service in the ‪Intent‬ that starts the service. The service can then use the broadcast to deliver a result.
+> **if you want the service to send a result back, the client that starts the service can create a ‪PendingIntent‬ for a broadcast with ‪`getBroadcast()‬` and deliver it to the**
+> **service in the ‪Intent‬ that starts the service. The service can then use the broadcast to deliver a result.**
